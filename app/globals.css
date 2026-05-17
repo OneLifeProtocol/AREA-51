@@ -1,0 +1,177 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 33, 37, 41;
+  --background-end-rgb: 33, 37, 41;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+}
+
+.stars {
+  background-image: radial-gradient(2px 2px at 20px 30px, #ffffff, rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 40px 70px, #ffffff, rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 50px 160px, #ffffff, rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 90px 40px, #ffffff, rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 130px 80px, #ffffff, rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 160px 120px, #ffffff, rgba(0, 0, 0, 0));
+  background-repeat: repeat;
+  background-size: 200px 200px;
+}
+
+.cosmic-gradient {
+  background: linear-gradient(135deg, rgba(33, 37, 41, 0.9) 0%, rgba(52, 58, 64, 0.8) 100%);
+}
+
+.cosmic-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.cosmic-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.05) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(30deg);
+  transition: transform 0.5s ease-out;
+  pointer-events: none;
+}
+
+.cosmic-card:hover::before {
+  transform: rotate(30deg) translate(10%, 10%);
+}
+
+.light-beam {
+  position: relative;
+  overflow: hidden;
+}
+
+.light-beam::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.8);
+  transform: rotate(45deg) translateX(-50%);
+}
+
+.light-beam::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.8);
+  transform: rotate(-45deg) translateX(50%);
+}
+
+@keyframes subtle-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.animate-subtle-bounce {
+  animation: subtle-bounce 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 15px rgba(255, 102, 25, 0.5);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(255, 102, 25, 0.9);
+    transform: scale(1.03);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #ffffff, #d0d0d0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.star-divider {
+  position: relative;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.star-divider::before,
+.star-divider::after {
+  content: "";
+  height: 1px;
+  width: 100px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 0 15px;
+}
+
+.marble-bg {
+  background-color: #f5f5f5;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Add a new class for the navigation hover effect */
+.nav-link:hover {
+  color: #ff6619;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+/* Add neon orange glow effect for service cards */
+.service-card-neon {
+  transition: all 0.3s ease;
+}
+
+.service-card-neon:active {
+  box-shadow: 0 0 30px rgba(255, 102, 25, 0.9);
+  border-color: rgba(255, 102, 25, 0.7);
+}
